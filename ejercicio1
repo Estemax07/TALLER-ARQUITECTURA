@@ -1,31 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Función que devuelve el doble del valor proporcionado
 double doble(double x) {
     return 2 * x;
 }
 
-
+// Función que solicita al usuario un número válido y lo devuelve
 double obtenerValor() {
     double valor;
     printf("Introduce un número: ");
-    while (scanf("%lf", &valor) != 1) {
+    while (scanf("%lf", &valor) != 1) {  // Validación de la entrada
         printf("Entrada inválida. Por favor ingresa un número: ");
-        while(getchar() != '\n');
+        while(getchar() != '\n');  // Limpiar el buffer de entrada
     }
     return valor;
 }
 
-
+// Función que muestra el resultado de calcular el doble de un número
 void mostrarResultado(double valor, double resultado) {
     printf("El doble de %.2f es %.2f\n", valor, resultado);
 }
 
 int main() {
-
-    double valor = obtenerValor();
-    double resultado = doble(valor);
-    mostrarResultado(valor, resultado);
+    double valor = obtenerValor();  // Obtener el valor del usuario
+    double resultado = doble(valor);  // Calcular el doble del valor
+    mostrarResultado(valor, resultado);  // Mostrar el resultado
 
     return 0;
 }
+
