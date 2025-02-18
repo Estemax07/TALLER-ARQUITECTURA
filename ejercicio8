@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <math.h>
+
+double raizCuadradaLog(double x) {
+    return sqrt(log10(ceil(x)));
+}
+
+int main() {
+    double valor = 5.0;
+    printf("La raíz cuadrada del logaritmo en base 10 del menor entero mayor que %.2f es %.2f\n", 
+           valor, raizCuadradaLog(valor));
+    return 0;
+}
