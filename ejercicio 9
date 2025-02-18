@@ -1,0 +1,25 @@
+#ifndef HIPOTECA_H
+#define HIPOTECA_H
+
+#include <stdbool.h> // Para utilizar booleanos en la validación
+
+// Prototipo de función para calcular la cuota mensual de la hipoteca.
+// capital: Monto del préstamo
+// interesAnual: Tasa de interés anual en porcentaje
+// anios: Duración del préstamo en años
+// Devuelve el valor de la cuota mensual
+double calcularCuota(double capital, double interesAnual, int anios);
+
+// Prototipo de función para calcular el capital total necesario
+// para una cuota mensual dada.
+// cuota: La cuota mensual
+// interesAnual: Tasa de interés anual en porcentaje
+// anios: Duración del préstamo en años
+// Devuelve el monto del préstamo necesario
+double calcularCapital(double cuota, double interesAnual, int anios);
+
+// Función de validación para parámetros de entrada válidos
+// Devuelve true si los parámetros son válidos, false si no lo son
+bool validarParametros(double valor, double tasa, int periodo);
+
+#endif
