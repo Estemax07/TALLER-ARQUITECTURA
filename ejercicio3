@@ -1,37 +1,36 @@
 #include <stdio.h>
 #include <ctype.h>
 
+// Función que convierte una letra minúscula a mayúscula
 char convertirAMayuscula(char letra) {
-    
-    if (letra >= 'a' && letra <= 'z') {
-        return letra - ('a' - 'A');
+    if (letra >= 'a' && letra <= 'z') {  // Verificar si es una letra minúscula
+        return letra - ('a' - 'A');  // Convertir a mayúscula
     } else {
-       
-        return letra;
+        return letra;  // Si no es minúscula, devolverla sin cambios
     }
 }
 
-
+// Función que solicita al usuario una letra válida
 char obtenerLetra() {
     char letra;
     printf("Introduce una letra en minúscula: ");
-    while (scanf(" %c", &letra) != 1 || !isalpha(letra)) {
+    while (scanf(" %c", &letra) != 1 || !isalpha(letra)) {  // Validar que sea una letra
         printf("Entrada inválida. Por favor ingresa una letra: ");
-        while (getchar() != '\n');
+        while (getchar() != '\n');  // Limpiar el buffer
     }
     return letra;
 }
 
-
+// Función que muestra el resultado de convertir una letra a mayúscula
 void mostrarResultado(char letra, char mayuscula) {
     printf("La letra mayúscula de '%c' es '%c'\n", letra, mayuscula);
 }
 
 int main() {
-    
-    char letra = obtenerLetra();
-    char mayuscula = convertirAMayuscula(letra);
-    mostrarResultado(letra, mayuscula);
+    char letra = obtenerLetra();  // Obtener una letra del usuario
+    char mayuscula = convertirAMayuscula(letra);  // Convertirla a mayúscula
+    mostrarResultado(letra, mayuscula);  // Mostrar el resultado
 
     return 0;
 }
+
