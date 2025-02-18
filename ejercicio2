@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <math.h>
+
+void calcularRaices(double a, double b, double c) {
+    double discriminante = (b * b)- 4 * (a * c);
+    if (discriminante < 0) {
+        printf("No hay raices reales. Intente con otros valores.\n");
+    } else {
+        double raiz1 = (-b + sqrt(discriminante)) / (2 * a);
+        double raiz2 = (-b - sqrt(discriminante)) / (2 * a);
+        printf("Las raices son: %.2f y %.2f\n", raiz1, raiz2);
+    }
+}
+
+int main() {
+    double a, b, c;
+    char continuar;
+
+    do {
+        printf("Ingrese el coeficiente a: ");
+        scanf("%lf", &a);
+        printf("Ingrese el coeficiente b: ");
+        scanf("%lf", &b);
+        printf("Ingrese el coeficiente c: ");
+        scanf("%lf", &c);
+
+        calcularRaices(a, b, c);
+        
+        printf("¿Desea intentar con otros valores? (s/n): ");
+        scanf(" %c", &continuar);  
+
+    } while (continuar == 's' || continuar == 'S');
+
+    return 0;
+}
