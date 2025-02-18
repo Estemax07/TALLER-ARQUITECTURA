@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+double doble(double x) {
+    return 2 * x;
+}
+
+
+double obtenerValor() {
+    double valor;
+    printf("Introduce un número: ");
+    while (scanf("%lf", &valor) != 1) {
+        printf("Entrada inválida. Por favor ingresa un número: ");
+        while(getchar() != '\n');
+    }
+    return valor;
+}
+
+
+void mostrarResultado(double valor, double resultado) {
+    printf("El doble de %.2f es %.2f\n", valor, resultado);
+}
+
+int main() {
+
+    double valor = obtenerValor();
+    double resultado = doble(valor);
+    mostrarResultado(valor, resultado);
+
+    return 0;
+}
