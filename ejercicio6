@@ -1,52 +1,50 @@
 #include <stdio.h>
 
+// Función que calcula el producto escalar de dos vectores
 double productoEscalar(double v1[], double v2[], int n) {
     double producto = 0;
-    for (int i = 0; i < n; i++) {
-        producto += v1[i] * v2[i];
-    }
+    for (int i = 0; i < n; i++) producto += v1[i] * v2[i];  // Sumar el producto de los componentes
     return producto;
 }
 
+// Función que calcula el producto vectorial de dos vectores
 void productoVectorial(double v1[], double v2[], double resultado[]) {
-    resultado[0] = v1[1] * v2[2] - v1[2] * v2[1];
-    resultado[1] = v1[2] * v2[0] - v1[0] * v2[2];
-    resultado[2] = v1[0] * v2[1] - v1[1] * v2[0];
+    resultado[0] = v1[1] * v2[2] - v1[2] * v2[1];  // Componente x
+    resultado[1] = v1[2] * v2[0] - v1[0] * v2[2];  // Componente y
+    resultado[2] = v1[0] * v2[1] - v1[1] * v2[0];  // Componente z
 }
 
+// Función que solicita los componentes de un vector
 void leerVector(double v[], int n) {
-    for (int i = 0; i < n; i++) {
-        printf("Introduce el componente %d del vector: ", i + 1);
-        scanf("%lf", &v[i]);
-    }
+    for (int i = 0; i < n; i++) scanf("%lf", &v[i]);  // Leer cada componente
 }
 
+// Función que muestra un vector
 void mostrarVector(double v[], int n) {
     printf("[");
     for (int i = 0; i < n; i++) {
         printf("%.2f", v[i]);
-        if (i < n - 1) {
-            printf(", ");
-        }
+        if (i < n - 1) printf(", ");  // Imprimir coma entre los componentes
     }
     printf("]\n");
 }
 
 int main() {
-    int n = 3;
+    int n = 3;  // Tamaño de los vectores
     double v1[n], v2[n], resultado[3];
-    
-    printf("Introduce los componentes del primer vector (v1):\n");
-    leerVector(v1, n);
 
-    printf("Introduce los componentes del segundo vector (v2):\n");
-    leerVector(v2, n);
+    printf("Introduce los componentes del primer vector (v1): ");
+    leerVector(v1, n);  // Leer el primer vector
 
-    printf("Producto escalar: %.2f\n", productoEscalar(v1, v2, n));
+    printf("Introduce los componentes del segundo vector (v2): ");
+    leerVector(v2, n);  // Leer el segundo vector
 
-    productoVectorial(v1, v2, resultado);
+    printf("Producto escalar: %.2f\n", productoEscalar(v1, v2, n));  // Calcular y mostrar el producto escalar
+
+    productoVectorial(v1, v2, resultado);  // Calcular el producto vectorial
     printf("Producto vectorial: ");
-    mostrarVector(resultado, n);
+    mostrarVector(resultado, n);  // Mostrar el resultado del producto vectorial
 
     return 0;
 }
+
