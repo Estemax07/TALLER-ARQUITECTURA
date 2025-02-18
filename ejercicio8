@@ -1,13 +1,15 @@
 #include <stdio.h>
 #include <math.h>
 
+// Función que calcula la raíz cuadrada del logaritmo en base 10 del menor entero mayor que el valor
 double raizCuadradaLog(double x) {
-    return sqrt(log10(ceil(x)));
+    return sqrt(log10(ceil(x)));  // Calcular la raíz cuadrada del logaritmo base 10 del techo de x
 }
 
 int main() {
     double valor = 5.0;
     printf("La raíz cuadrada del logaritmo en base 10 del menor entero mayor que %.2f es %.2f\n", 
-           valor, raizCuadradaLog(valor));
+           valor, raizCuadradaLog(valor));  // Mostrar el resultado
+
     return 0;
 }
