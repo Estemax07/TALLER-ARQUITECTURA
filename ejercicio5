@@ -1,1 +1,53 @@
+#include <stdio.h>
 
+double productoEscalar(double v1[], double v2[], int n) {
+    double producto = 0;
+    for (int i = 0; i < n; i++) {
+        producto += v1[i] * v2[i];
+    }
+    return producto;
+}
+
+void productoVectorial(double v1[], double v2[], double resultado[]) {
+    resultado[0] = v1[1] * v2[2] - v1[2] * v2[1];
+    resultado[1] = v1[2] * v2[0] - v1[0] * v2[2];
+    resultado[2] = v1[0] * v2[1] - v1[1] * v2[0];
+}
+
+void leerVector(double v[], int n) {
+    for (int i = 0; i < n; i++) {
+        printf("Introduce el componente %d del vector: ", i + 1);
+        scanf("%lf", &v[i]);
+    }
+}
+
+void mostrarVector(double v[], int n) {
+    printf("[");
+    for (int i = 0; i < n; i++) {
+        printf("%.2f", v[i]);
+        if (i < n - 1) {
+            printf(", ");
+        }
+    }
+    printf("]\n");
+}
+
+int main() {
+    int n = 3; 
+
+    double v1[n], v2[n], resultado[3];
+
+    printf("Introduce los componentes del primer vector (v1):\n");
+    leerVector(v1, n);
+
+    printf("Introduce los componentes del segundo vector (v2):\n");
+    leerVector(v2, n);
+
+    printf("Producto escalar: %.2f\n", productoEscalar(v1, v2, n));
+
+    productoVectorial(v1, v2, resultado);
+    printf("Producto vectorial: ");
+    mostrarVector(resultado, n);
+
+    return 0;
+}
