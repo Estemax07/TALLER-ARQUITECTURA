@@ -1,14 +1,15 @@
 #include <stdio.h>
 #include <math.h>
 
+// Función que calcula las raíces de una ecuación cuadrática
 void calcularRaices(double a, double b, double c) {
-    double discriminante = (b * b)- 4 * (a * c);
+    double discriminante = (b * b) - 4 * (a * c);  // Fórmula del discriminante
     if (discriminante < 0) {
-        printf("No hay raices reales. Intente con otros valores.\n");
+        printf("No hay raices reales. Intente con otros valores.\n");  // Si el discriminante es negativo
     } else {
-        double raiz1 = (-b + sqrt(discriminante)) / (2 * a);
-        double raiz2 = (-b - sqrt(discriminante)) / (2 * a);
-        printf("Las raices son: %.2f y %.2f\n", raiz1, raiz2);
+        double raiz1 = (-b + sqrt(discriminante)) / (2 * a);  // Calcula la primera raíz
+        double raiz2 = (-b - sqrt(discriminante)) / (2 * a);  // Calcula la segunda raíz
+        printf("Las raices son: %.2f y %.2f\n", raiz1, raiz2);  // Muestra las raíces
     }
 }
 
@@ -24,12 +25,12 @@ int main() {
         printf("Ingrese el coeficiente c: ");
         scanf("%lf", &c);
 
-        calcularRaices(a, b, c);
-        
-        printf("¿Desea intentar con otros valores? (s/n): ");
-        scanf(" %c", &continuar);  
+        calcularRaices(a, b, c);  // Calcular las raíces
 
-    } while (continuar == 's' || continuar == 'S');
+        printf("¿Desea intentar con otros valores? (s/n): ");
+        scanf(" %c", &continuar);  // Preguntar al usuario si quiere continuar
+
+    } while (continuar == 's' || continuar == 'S');  // Continuar si el usuario responde 's'
 
     return 0;
 }
